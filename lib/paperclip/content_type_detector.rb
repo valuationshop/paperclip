@@ -32,8 +32,10 @@ module Paperclip
         EMPTY_TYPE
       elsif calculated_type_matches.any?
         calculated_type_matches.first
+      elsif possible_types.any?
+        possible_types.first
       else
-        type_from_file_contents || SENSIBLE_DEFAULT
+        type_from_file_command || SENSIBLE_DEFAULT
       end.to_s
     end
 
